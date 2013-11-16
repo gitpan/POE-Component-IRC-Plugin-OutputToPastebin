@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use lib '../lib';
+use lib qw(../lib  lib);
 use POE qw(Component::IRC  Component::IRC::Plugin::OutputToPastebin);
 
 my $irc = POE::Component::IRC->spawn(
@@ -38,6 +38,6 @@ sub irc_001 {
 
 sub irc_public {
     $irc->yield( privmsg => '#zofbot' =>
-        'OH HAI! [irc_to_pastebin]sorry just testing this plugin :('
+        'OH HAI! [irc_to_pastebin]sorry just testing this plugin :)'
     );
 }

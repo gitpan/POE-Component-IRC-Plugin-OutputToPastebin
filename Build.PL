@@ -15,7 +15,9 @@ my $builder = Module::Build->new(
         'POE::Component::IRC::Plugin'                          => 0.10,
         'POE'                                                  => 0.9999,
         'POE::Component::WWW::Pastebin::Bot::Pastebot::Create' => 0.002,
+        'perl' => '5.006',
     },
+    configure_requires => { 'Module::Build' => 0 },
     add_to_cleanup      => [ 'POE-Component-IRC-Plugin-OutputToPastebin-*' ],
     create_makefile_pl => 'traditional',
 );

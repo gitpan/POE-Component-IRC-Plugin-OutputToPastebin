@@ -3,7 +3,7 @@ package POE::Component::IRC::Plugin::OutputToPastebin;
 use warnings;
 use strict;
 
-our $VERSION = '0.001';
+our $VERSION = '0.002';
 
 use Carp;
 use POE::Component::IRC::Plugin qw(:ALL);
@@ -19,7 +19,7 @@ sub new {
     %args = (
         max_tries   => 3,
         trigger     => '[irc_to_pastebin]',
-        pastebins   => [ qw(http://p3m.org/pfn http://erxz.com/pb) ],
+        pastebins   => [ qw(http://p3m.org/pfn) ],
         timeout     => 20,
         debug       => 0,
         %args,
@@ -135,6 +135,8 @@ sub _shutdown {
 1;
 __END__
 
+=encoding utf8
+
 =head1 NAME
 
 POE::Component::IRC::Plugin::OutputToPastebin - easily pastebin output from your bot
@@ -208,7 +210,7 @@ output is ment C<privmsg> and C<notice> messages) by inserting special
                 max_tries   => 3,
                 timeout     => 20,
                 trigger     => '[irc_to_pastebin]',
-                pastebins   => [ qw(http://p3m.org/pfn http://erxz.com/pb) ],
+                pastebins   => [ qw(http://p3m.org/pfn) ],
                 debug       => 1,
             )
     );
@@ -240,7 +242,7 @@ C<[irc_to_pastebin]> (note the square brackets)
 B<Optional>. The C<pastebins> argument takes an arrayref of URIs each
 pointing to pastebin sites powered by L<Bot::Pastebot>. Plugin will
 automatically iterate over specified list of pastebins on every paste
-request. B<Defaults to:> C<[ qw(http://p3m.org/pfn http://erxz.com/pb) ]>
+request. B<Defaults to:> C<[ qw(http://p3m.org/pfn) ]>
 
 =head3 C<max_tries>
 
